@@ -1,0 +1,17 @@
+= mycontroller-parent-pom
+
+A common configuration base for building MyController projects.
+
+== How to use
+
+To use this `mycontroller-parent-pom` as the base of your project, just add the following snippet at the beginning of your
+project's `pom.xml` file:
+
+[source,xml]
+----
+  <parent>
+    <groupId>org.mycontroller</groupId>
+    <artifactId>mycontroller-parent-pom</artifactId>
+    <version>1</version>
+  </parent>
+----
