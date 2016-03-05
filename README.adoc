@@ -11,7 +11,7 @@ project's `pom.xml` file:
 ----
   <parent>
     <groupId>org.mycontroller</groupId>
-    <artifactId>mycontroller-parent-pom</artifactId>
+    <artifactId>mycontroller-parent</artifactId>
     <version>1</version>
   </parent>
 ----

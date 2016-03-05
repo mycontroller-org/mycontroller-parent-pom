@@ -117,8 +117,8 @@
     <srcdeps.quiet>true</srcdeps.quiet>
     <srcdeps.skipTests>true</srcdeps.skipTests>
 
-    <!-- mycontroller-build-tools are used by both maven-checkstyle-plugin and 
-      lisense-plugin -->
+    <!-- mycontroller-build-tools are used by both maven-checkstyle-plugin 
+      and lisense-plugin -->
     <version.org.mycontroller.mycontroller-build-tools>14</version.org.mycontroller.mycontroller-build-tools>
 
     <!-- Maven plugin versions Naming convention: version.${artifactId} whenever 
@@ -127,7 +127,32 @@
     <version.maven-shade-plugin>1.6</version.maven-shade-plugin>
     <version.maven-assembly-plugin>2.6</version.maven-assembly-plugin>
 
-    </properties>
+  </properties>
 
+  <repositories>
+    <repository>
+      <id>oss-snapshots-repo</id>
+      <name>Sonatype OSS Maven Repository</name>
+      <url>https://oss.sonatype.org/content/groups/public</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>Eclipse Paho Repo</id>
+      <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
+    </repository>
+    <repository>
+      <id>moquette-bintray</id>
+      <url>http://dl.bintray.com/andsel/maven/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
 </project>
