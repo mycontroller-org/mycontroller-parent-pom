@@ -1,3 +1,21 @@
+<!--
+
+    Copyright 2015-2016 Jeeva Kandasamy (jkandasa@gmail.com)
+    and other contributors as indicated by the @author tags.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -10,7 +28,7 @@
   <name>MyController parent pom</name>
   <description>MyController parent pom file used across</description>
   <url>https://github.com/mycontroller-org</url>
-  <inceptionYear>2015-2016</inceptionYear>
+  <inceptionYear>2015</inceptionYear>
 
   <licenses>
     <license>
@@ -27,6 +45,13 @@
       <timezone>Asia/Kolkata</timezone>
     </developer>
   </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:mycontroller-org/mycontroller-parent-pom.git</connection>
+    <developerConnection>scm:git:git@github.com:mycontroller-org/mycontroller-parent-pom.git</developerConnection>
+    <url>https://github.com/mycontroller-org/mycontroller-parent-pom</url>
+    <tag>head</tag>
+  </scm>
 
   <issueManagement>
     <system>github</system>
@@ -91,7 +116,7 @@
     <checkstyle.suppressions.file>mycontroller-checkstyle/suppressions.xml</checkstyle.suppressions.file>
 
     <!-- maven-enforcer-plugin -->
-    <!-- Note that ${enforcer.project.version.pattern} has a stricter variant 
+    <!-- Note that ${enforcer.project.version.pattern} has a stricter variant
       in the release profile -->
     <enforcer.project.version.pattern>^(\d{1,4})(\.\d{1,3}\.\d{1,3}(\.Alpha\d{1,2}|\.Beta\d{1,2}|\.CR\d{1,2}|\.Final)?)?(-SNAPSHOT|-SRC-.*)?$</enforcer.project.version.pattern>
     <enforcer.project.version.message>Project version must be in the
@@ -102,7 +127,7 @@
       "-SNAPSHOT" or -SRC-.* at the very end.</enforcer.project.version.message>
 
     <!-- license-maven-plugin -->
-    <license.headerTemplatePath>mycontroller-license/jboss-apache-2-template.txt</license.headerTemplatePath>
+    <license.headerTemplatePath>mycontroller-license/mycontroller-apache-2-template.txt</license.headerTemplatePath>
     <license.failIfMissing>true</license.failIfMissing>
     <license.failIfUnknown>true</license.failIfUnknown>
 
@@ -112,47 +137,804 @@
     <!-- nexus-staging-maven-plugin -->
     <autoReleaseAfterClose>true</autoReleaseAfterClose>
 
-    <!-- srcdeps-maven-plugin let's have the SCM URLs as propeties so that 
+    <!-- srcdeps-maven-plugin let's have the SCM URLs as propeties so that
       they can be switched to local repos on command line when testing -->
     <srcdeps.quiet>true</srcdeps.quiet>
     <srcdeps.skipTests>true</srcdeps.skipTests>
 
-    <!-- mycontroller-build-tools are used by both maven-checkstyle-plugin 
+    <!-- mycontroller-build-tools are used by both maven-checkstyle-plugin
       and lisense-plugin -->
-    <version.org.mycontroller.mycontroller-build-tools>14</version.org.mycontroller.mycontroller-build-tools>
+    <version.org.mycontroller.mycontroller-build-tools>1-SNAPSHOT</version.org.mycontroller.mycontroller-build-tools>
 
-    <!-- Maven plugin versions Naming convention: version.${artifactId} whenever 
+    <!-- Maven plugin versions Naming convention: version.${artifactId} whenever
       unique enough; otherwise version.${groupId}.${artifactId} Ordering: alphabetic -->
     <version.com.mycila.license-maven-plugin>2.11</version.com.mycila.license-maven-plugin>
-    <version.maven-shade-plugin>1.6</version.maven-shade-plugin>
+    <version.exec-maven-plugin>1.4.0</version.exec-maven-plugin>
+    <version.gatling-maven-plugin>2.1.7</version.gatling-maven-plugin>
+    <version.maven-antrun-plugin>1.8</version.maven-antrun-plugin>
     <version.maven-assembly-plugin>2.6</version.maven-assembly-plugin>
+    <version.maven-checkstyle-plugin>2.17</version.maven-checkstyle-plugin>
+    <version.maven-clean-plugin>3.0.0</version.maven-clean-plugin>
+    <version.maven-compiler-plugin>3.5.1</version.maven-compiler-plugin>
+    <version.maven-dependency-plugin>2.10</version.maven-dependency-plugin>
+    <version.maven-deploy-plugin>2.8.2</version.maven-deploy-plugin>
+    <version.maven-enforcer-plugin>1.4.1</version.maven-enforcer-plugin>
+    <version.maven-failsafe-plugin>2.19.1</version.maven-failsafe-plugin>
+    <version.maven-install-plugin>2.5.2</version.maven-install-plugin>
+    <version.maven-jar-plugin>2.6</version.maven-jar-plugin>
+    <version.maven-javadoc-plugin>2.10.3</version.maven-javadoc-plugin>
+    <version.maven-release-plugin>2.5.3</version.maven-release-plugin>
+    <version.maven-resources-plugin>2.7</version.maven-resources-plugin>
+    <version.maven-site-plugin>3.5</version.maven-site-plugin>
+    <version.maven-shade-plugin>2.4.3</version.maven-shade-plugin>
+    <version.maven-source-plugin>3.0.0</version.maven-source-plugin>
+    <version.maven-surefire-plugin>2.19.1</version.maven-surefire-plugin>
+    <version.maven-war-plugin>2.6</version.maven-war-plugin>
+    <version.nexus-staging-maven-plugin>1.6.6</version.nexus-staging-maven-plugin>
+    <version.org.codehaus.buildnumber-maven-plugin>1.4</version.org.codehaus.buildnumber-maven-plugin>
+    <version.org.codehaus.gmavenplus.gmavenplus-plugin>1.5</version.org.codehaus.gmavenplus.gmavenplus-plugin>
+    <version.org.codehaus.mojo.build-helper-maven-plugin>1.10</version.org.codehaus.mojo.build-helper-maven-plugin>
+    <version.org.codehaus.mojo.xml-maven-plugin>1.0.1</version.org.codehaus.mojo.xml-maven-plugin>
+    <version.srcdeps-maven-plugin>0.0.11</version.srcdeps-maven-plugin>
+
+    <!-- dependency versions -->
+    <version.apache.httpcore>4.4.4</version.apache.httpcore>
+    <version.ch.qos.logback>1.1.3</version.ch.qos.logback>
+    <version.com.fazecast>1.3.10</version.com.fazecast>
+    <version.com.h2database>1.3.176</version.com.h2database>
+    <version.com.j256.ormlite>4.48</version.com.j256.ormlite>
+    <version.com.luckycatlabs>1.2</version.com.luckycatlabs>
+    <version.com.pi4j>1.1-SNAPSHOT</version.com.pi4j>
+    <version.commons-codec>1.10</version.commons-codec>
+    <version.commons-io>2.4</version.commons-io>
+    <version.commons-lang>2.2</version.commons-lang>
+    <version.javax.servlet>2.5</version.javax.servlet>
+    <version.moquette-broker>0.8</version.moquette-broker>
+    <version.org.apache.commons>1.4</version.org.apache.commons>
+    <version.org.eclipse.paho>1.0.2</version.org.eclipse.paho>
+    <version.org.flywaydb>3.2.1</version.org.flywaydb>
+    <version.org.javolution>5.3.1</version.org.javolution>
+    <version.org.jboss.resteasy>3.0.14.Final</version.org.jboss.resteasy>
+    <version.org.knowm>2.1.1-SNAPSHOT</version.org.knowm>
+    <version.org.projectlombok>1.16.6</version.org.projectlombok>
+    <version.org.scream3r>2.8.0</version.org.scream3r>
+    <version.org.slf4j>1.7.12</version.org.slf4j>
+    <version.apache.httpclient>4.5.1</version.apache.httpclient>
 
   </properties>
 
-  <repositories>
-    <repository>
-      <id>oss-snapshots-repo</id>
-      <name>Sonatype OSS Maven Repository</name>
-      <url>https://oss.sonatype.org/content/groups/public</url>
-      <snapshots>
-        <enabled>true</enabled>
-        <updatePolicy>always</updatePolicy>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>Eclipse Paho Repo</id>
-      <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
-    </repository>
-    <repository>
-      <id>moquette-bintray</id>
-      <url>http://dl.bintray.com/andsel/maven/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
+  <dependencyManagement>
+    <dependencies>
+
+      <!-- serial gateway drivers -->
+      <dependency>
+        <groupId>org.scream3r</groupId>
+        <artifactId>jssc</artifactId>
+        <version>${version.org.scream3r}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.pi4j</groupId>
+        <artifactId>pi4j-core</artifactId>
+        <version>${version.com.pi4j}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.fazecast</groupId>
+        <artifactId>jSerialComm</artifactId>
+        <version>${version.com.fazecast}</version>
+      </dependency>
+
+      <!-- Logger -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${version.org.slf4j}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>${version.ch.qos.logback}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${version.ch.qos.logback}</version>
+      </dependency>
+
+      <!-- Struct for firmware -->
+      <dependency>
+        <groupId>org.javolution</groupId>
+        <artifactId>javolution</artifactId>
+        <version>${version.org.javolution}</version>
+      </dependency>
+
+      <!-- RestEasy -->
+      <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>tjws</artifactId>
+        <version>${version.org.jboss.resteasy}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-jackson2-provider</artifactId>
+        <version>${version.org.jboss.resteasy}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-client</artifactId>
+        <version>${version.org.jboss.resteasy}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jboss.resteasy</groupId>
+        <artifactId>resteasy-jaxrs</artifactId>
+        <version>${version.org.jboss.resteasy}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- commons-io version -->
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${version.commons-io}</version>
+      </dependency>
+
+
+      <!-- servlet -->
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>${version.javax.servlet}</version>
+      </dependency>
+
+      <!-- Database driver -->
+      <dependency>
+        <groupId>com.j256.ormlite</groupId>
+        <artifactId>ormlite-jdbc</artifactId>
+        <version>${version.com.j256.ormlite}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.j256.ormlite</groupId>
+        <artifactId>ormlite-core</artifactId>
+        <version>${version.com.j256.ormlite}</version>
+      </dependency>
+
+      <!-- Database -->
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>${version.com.h2database}</version>
+      </dependency>
+
+      <!-- Quartz scheduler -->
+      <dependency>
+        <groupId>org.knowm</groupId>
+        <artifactId>sundial</artifactId>
+        <version>${version.org.knowm}</version>
+      </dependency>
+
+      <!-- Apache - Commons Lang -->
+      <dependency>
+        <groupId>commons-lang</groupId>
+        <artifactId>commons-lang</artifactId>
+        <version>${version.commons-lang}</version>
+      </dependency>
+
+      <!-- Sunrise and Sunset calculator -->
+      <dependency>
+        <groupId>com.luckycatlabs</groupId>
+        <artifactId>SunriseSunsetCalculator</artifactId>
+        <version>${version.com.luckycatlabs}</version>
+      </dependency>
+
+      <!-- Email client -->
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-email</artifactId>
+        <version>${version.org.apache.commons}</version>
+      </dependency>
+
+      <!-- Apache Commons Codec -->
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>${version.commons-codec}</version>
+      </dependency>
+
+      <!-- MQTT client -->
+      <dependency>
+        <groupId>org.eclipse.paho</groupId>
+        <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+        <version>${version.org.eclipse.paho}</version>
+      </dependency>
+
+      <!-- MQTT broker -->
+      <dependency>
+        <groupId>io.moquette</groupId>
+        <artifactId>moquette-broker</artifactId>
+        <version>${version.moquette-broker}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- Apache HttpComponents -->
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${version.apache.httpclient}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpcore</artifactId>
+        <version>${version.apache.httpcore}</version>
+      </dependency>
+
+      <!-- FlyWay database migration -->
+      <dependency>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-core</artifactId>
+        <version>${version.org.flywaydb}</version>
+      </dependency>
+
+      <!-- Project lombok builder annotation -->
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${version.org.projectlombok}</version>
+        <scope>provided</scope>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Ordering: alphabetic by the version property -->
+
+        <plugin>
+          <groupId>com.mycila</groupId>
+          <artifactId>license-maven-plugin</artifactId>
+          <version>${version.com.mycila.license-maven-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>${version.exec-maven-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>${version.maven-assembly-plugin}</version>
+          <configuration>
+            <tarLongFileMode>gnu</tarLongFileMode>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>${version.maven-checkstyle-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${version.maven-clean-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${version.maven-compiler-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${version.maven-dependency-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${version.maven-deploy-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${version.maven-enforcer-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-failsafe-plugin</artifactId>
+          <version>${version.maven-failsafe-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>${version.maven-install-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${version.maven-jar-plugin}</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+              <compress>true</compress>
+            </archive>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${version.maven-javadoc-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>${version.maven-release-plugin}</version>
+          <configuration>
+            <tagNameFormat>@{project.version}</tagNameFormat>
+            <preparationGoals>package</preparationGoals>
+            <goals>deploy</goals>
+            <releaseProfiles>release</releaseProfiles>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${version.maven-resources-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>${version.maven-site-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>${version.maven-shade-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${version.maven-source-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${version.maven-surefire-plugin}</version>
+          <configuration>
+            <argLine>-Xmx512m</argLine>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${version.nexus-staging-maven-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>buildnumber-maven-plugin</artifactId>
+          <version>${version.org.codehaus.buildnumber-maven-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.gmavenplus</groupId>
+          <artifactId>gmavenplus-plugin</artifactId>
+          <version>${version.org.codehaus.gmavenplus.gmavenplus-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>${version.org.codehaus.mojo.build-helper-maven-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>xml-maven-plugin</artifactId>
+          <version>${version.org.codehaus.mojo.xml-maven-plugin}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.l2x6.maven.srcdeps</groupId>
+          <artifactId>srcdeps-maven-plugin</artifactId>
+          <version>${version.srcdeps-maven-plugin}</version>
+          <extensions>true</extensions>
+          <configuration>
+            <repositories>
+              <repository>
+                <id>mycontroller</id>
+                <selectors>
+                  <selector>org.mycontroller.mycontroller</selector>
+                </selectors>
+                <url>${mycontroller.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Dcheckstyle.skip=true</buildArg>
+                  <buildArg>-Dlicense.skip=true</buildArg>
+                  <buildArg>-Drevapi.skip=true</buildArg>
+                </buildArgs>
+              </repository>
+              <repository>
+                <id>accounts</id>
+                <selectors>
+                  <selector>org.mycontroller.accounts</selector>
+                </selectors>
+                <url>${accounts.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Dcheckstyle.skip=true</buildArg>
+                  <buildArg>-Dlicense.skip=true</buildArg>
+                  <buildArg>-Drevapi.skip=true</buildArg>
+                </buildArgs>
+              </repository>
+              <repository>
+                <id>agent</id>
+                <selectors>
+                  <selector>org.mycontroller.agent</selector>
+                </selectors>
+                <url>${agent.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Dcheckstyle.skip=true</buildArg>
+                  <buildArg>-Dlicense.skip=true</buildArg>
+                  <buildArg>-Drevapi.skip=true</buildArg>
+                </buildArgs>
+              </repository>
+              <repository>
+                <id>alerts</id>
+                <selectors>
+                  <selector>org.mycontroller.alerts</selector>
+                </selectors>
+                <url>${alerts.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Dcheckstyle.skip=true</buildArg>
+                  <buildArg>-Dlicense.skip=true</buildArg>
+                  <buildArg>-Drevapi.skip=true</buildArg>
+                </buildArgs>
+              </repository>
+              <repository>
+                <id>btm</id>
+                <selectors>
+                  <selector>org.mycontroller.btm</selector>
+                </selectors>
+                <url>${btm.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Dcheckstyle.skip=true</buildArg>
+                  <buildArg>-Dlicense.skip=true</buildArg>
+                  <buildArg>-Drevapi.skip=true</buildArg>
+                </buildArgs>
+              </repository>
+              <repository>
+                <id>commons</id>
+                <selectors>
+                  <selector>org.mycontroller.commons</selector>
+                </selectors>
+                <url>${commons.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Dcheckstyle.skip=true</buildArg>
+                  <buildArg>-Dlicense.skip=true</buildArg>
+                  <buildArg>-Drevapi.skip=true</buildArg>
+                </buildArgs>
+              </repository>
+              <repository>
+                <id>cmdgw</id>
+                <selectors>
+                  <selector>org.mycontroller.cmdgw</selector>
+                </selectors>
+                <url>${cmdgw.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Dcheckstyle.skip=true</buildArg>
+                  <buildArg>-Dlicense.skip=true</buildArg>
+                  <buildArg>-Drevapi.skip=true</buildArg>
+                </buildArgs>
+              </repository>
+              <repository>
+                <id>datamining</id>
+                <selectors>
+                  <selector>org.mycontroller.datamining</selector>
+                </selectors>
+                <url>${datamining.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Dcheckstyle.skip=true</buildArg>
+                  <buildArg>-Dlicense.skip=true</buildArg>
+                  <buildArg>-Drevapi.skip=true</buildArg>
+                </buildArgs>
+              </repository>
+              <repository>
+                <id>inventory</id>
+                <selectors>
+                  <selector>org.mycontroller.inventory</selector>
+                </selectors>
+                <url>${inventory.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Dcheckstyle.skip=true</buildArg>
+                  <buildArg>-Dlicense.skip=true</buildArg>
+                  <buildArg>-Drevapi.skip=true</buildArg>
+                </buildArgs>
+              </repository>
+              <repository>
+                <id>metrics</id>
+                <selectors>
+                  <selector>org.mycontroller.metrics</selector>
+                </selectors>
+                <url>${metrics.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Dcheckstyle.skip=true</buildArg>
+                  <buildArg>-Dlicense.skip=true</buildArg>
+                  <buildArg>-Drevapi.skip=true</buildArg>
+                </buildArgs>
+              </repository>
+              <repository>
+                <id>keycloak</id>
+                <selectors>
+                  <selector>org.keycloak</selector>
+                </selectors>
+                <url>${keycloak.scm.url}</url>
+                <buildArgs>
+                  <buildArg>-Pdistribution</buildArg>
+                  <buildArg>-Dwildfly.version=${version.org.wildfly}</buildArg>
+                  <buildArg>-Dwildfly.core.version=${version.org.wildfly.core}</buildArg>
+                  <buildArg>-Dwildfly.build-tools.version=${version.org.wildfly.build}</buildArg>
+                  <buildArg>--projects</buildArg>
+                  <buildArg>distribution/feature-packs/adapter-feature-pack,distribution/feature-packs/server-feature-pack</buildArg>
+                  <buildArg>--also-make</buildArg>
+                </buildArgs>
+              </repository>
+            </repositories>
+          </configuration>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <!-- Ordering: same as pluginManagement - alphabetic by the version property -->
+
+      <plugin>
+        <groupId>com.mycila</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <configuration>
+          <header>${license.headerTemplatePath}</header>
+          <excludes>
+            <exclude>**/.bowerrc</exclude>
+            <exclude>**/.jshintrc</exclude>
+            <exclude>**/LICENSE</exclude>
+            <exclude>**/README</exclude>
+            <exclude>**/README.*</exclude>
+            <exclude>**/.travis.force.build</exclude>
+            <exclude>**/*.adoc</exclude>
+            <exclude>**/*.d.ts</exclude>
+            <exclude>**/*.eot</exclude>
+            <exclude>**/*.otf</exclude>
+            <exclude>**/*.ttf</exclude>
+            <exclude>**/*.svg</exclude>
+            <exclude>**/*.woff</exclude>
+            <exclude>**/*.html</exclude>
+            <exclude>**/*.htm</exclude>
+          </excludes>
+          <mapping>
+            <conf>SCRIPT_STYLE</conf>
+            <cql>DOUBLEDASHES_STYLE</cql>
+            <css>SLASHSTAR_STYLE</css>
+            <Dockerfile>SCRIPT_STYLE</Dockerfile>
+            <drl>SLASHSTAR_STYLE</drl>
+            <editorconfig>SCRIPT_STYLE</editorconfig>
+            <g4>SLASHSTAR_STYLE</g4>
+            <gradle>SLASHSTAR_STYLE</gradle>
+            <gradlew>SCRIPT_STYLE</gradlew>
+            <groovy>SLASHSTAR_STYLE</groovy>
+            <iql>DOUBLEDASHES_STYLE</iql>
+            <jshintrc>SLASHSTAR_STYLE</jshintrc>
+            <java>SLASHSTAR_STYLE</java>
+            <less>SLASHSTAR_STYLE</less>
+            <wsdl>XML_STYLE</wsdl>
+            <yaml>SCRIPT_STYLE</yaml>
+            <yml>SCRIPT_STYLE</yml>
+          </mapping>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>com.mycila</groupId>
+            <artifactId>license-maven-plugin-git</artifactId>
+            <version>${version.com.mycila.license-maven-plugin}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.mycontroller</groupId>
+            <artifactId>mycontroller-build-tools</artifactId>
+            <version>${version.org.mycontroller.mycontroller-build-tools}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <configuration>
+          <configLocation>${checkstyle.configLocation}</configLocation>
+          <consoleOutput>${checkstyle.consoleOutput}</consoleOutput>
+          <failsOnError>${checkstyle.failOnError}</failsOnError>
+          <!-- Make includes relative to ${basedir} -->
+          <sourceDirectory>${basedir}</sourceDirectory>
+          <!-- in <includes>, it is necessary to avoid using an item-initial
+            **/ wildcard which pulls in also files from all submodules and target folders.
+            We do not want that. We rather have to name specific root folder patterns
+            like *.extension or directory/**/*.extension -->
+          <includes>${mycontroller.checkstyle.includes}</includes>
+          <excludes>${mycontroller.checkstyle.excludes}</excludes>
+          <!-- to override in a submodule, just redefine the checkstyle.suppressions.file
+            property in the given submodule's pom -->
+          <suppressionsLocation>${checkstyle.suppressions.file}</suppressionsLocation>
+          <useFile />
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${version.com.puppycrawl.tools.checkstyle}</version>
+            <exclusions>
+              <exclusion>
+                <groupId>com.sun</groupId>
+                <artifactId>tools</artifactId>
+              </exclusion>
+            </exclusions>
+          </dependency>
+          <dependency>
+            <groupId>org.mycontroller</groupId>
+            <artifactId>mycontroller-build-tools</artifactId>
+            <version>${version.org.mycontroller.mycontroller-build-tools}</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>check-style</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>checkstyle</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <optimize>true</optimize>
+          <debug>true</debug>
+          <showDeprecation>true</showDeprecation>
+          <!-- Workaround for https://jira.codehaus.org/browse/MCOMPILER-236 present in compiler plugin 3.2 -->
+          <useIncrementalCompilation>false</useIncrementalCompilation>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
+            <manifestEntries>
+              <Built-From-Git-SHA1>${buildNumber}</Built-From-Git-SHA1>
+              <Built-On>${timestamp}</Built-On>
+              <Built-From-Git-Branch>${scmBranch}</Built-From-Git-Branch>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>enforce-rules</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <rules>
+            <requireMavenVersion>
+              <version>[3.2.5,)</version>
+            </requireMavenVersion>
+            <requireJavaVersion>
+              <version>[1.8,)</version>
+            </requireJavaVersion>
+            <requireNoRepositories />
+            <requirePluginVersions />
+            <requireProperty>
+              <property>project.version</property>
+              <message>Project version must be specified.</message>
+              <regex>${enforcer.project.version.pattern}</regex>
+              <regexMessage>${enforcer.project.version.message}</regexMessage>
+            </requireProperty>
+          </rules>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.gmavenplus</groupId>
+        <artifactId>gmavenplus-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>addSources</goal>
+              <goal>addTestSources</goal>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xml-maven-plugin</artifactId>
+        <!-- *.xml and *.xsl are included by default -->
+        <executions>
+          <execution>
+            <id>xml-check-format</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>check-format</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.l2x6.maven.srcdeps</groupId>
+        <artifactId>srcdeps-maven-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+
+    </plugins>
+  </build>
+
 
 </project>
