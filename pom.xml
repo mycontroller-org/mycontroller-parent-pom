@@ -112,7 +112,8 @@
       release.properties,
       **/*.d.ts,
       **/vendor/*.js,
-      **/www/libs/*.*,
+      **/www/libs/**,
+      **/*.jks,
     </mycontroller.checkstyle.excludes>
     <!-- the default value pointing at suppressions.xml in mycontroller-build-tools -->
     <checkstyle.suppressions.file>mycontroller-checkstyle/suppressions.xml</checkstyle.suppressions.file>
@@ -200,10 +201,20 @@
     <version.org.slf4j>1.7.12</version.org.slf4j>
     <version.apache.httpclient>4.5.1</version.apache.httpclient>
 
+    <!-- dependency versions -->
+    <version.mycontroller-rest-clients>0.0.3.Alpha2-SNAPSHOT</version.mycontroller-rest-clients>
+
   </properties>
 
   <dependencyManagement>
     <dependencies>
+
+      <!-- Internal dependency - Rest clients -->
+      <dependency>
+        <groupId>org.mycontroller</groupId>
+        <artifactId>mycontroller-rest-clients</artifactId>
+        <version>0.0.3.Alpha2-SNAPSHOT</version>
+      </dependency>
 
       <!-- serial gateway drivers -->
       <dependency>
@@ -614,7 +625,8 @@
             <exclude>**/*.woff</exclude>
             <exclude>**/*.html</exclude>
             <exclude>**/*.htm</exclude>
-            <exclude>**/www/libs/*.*</exclude>
+            <exclude>**/www/libs/**</exclude>
+            <exclude>**/*.jks</exclude>
           </excludes>
           <mapping>
             <conf>SCRIPT_STYLE</conf>
