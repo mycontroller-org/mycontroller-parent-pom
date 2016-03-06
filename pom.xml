@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
     Copyright 2015-2016 Jeeva Kandasamy (jkandasa@gmail.com)
@@ -16,8 +17,7 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.mycontroller</groupId>
@@ -57,6 +57,7 @@
     <system>github</system>
     <url>https://github.com/mycontroller-org/mycontroller/issues</url>
   </issueManagement>
+
 
   <properties>
 
@@ -111,6 +112,7 @@
       release.properties,
       **/*.d.ts,
       **/vendor/*.js,
+      **/www/libs/*.*,
     </mycontroller.checkstyle.excludes>
     <!-- the default value pointing at suppressions.xml in mycontroller-build-tools -->
     <checkstyle.suppressions.file>mycontroller-checkstyle/suppressions.xml</checkstyle.suppressions.file>
@@ -139,12 +141,12 @@
 
     <!-- srcdeps-maven-plugin let's have the SCM URLs as propeties so that
       they can be switched to local repos on command line when testing -->
+    <mycontroller.scm.url>scm:git:https://github.com/mycontroller-org/mycontroller.git</mycontroller.scm.url>
     <srcdeps.quiet>true</srcdeps.quiet>
     <srcdeps.skipTests>true</srcdeps.skipTests>
 
-    <!-- mycontroller-build-tools are used by both maven-checkstyle-plugin
-      and lisense-plugin -->
-    <version.org.mycontroller.mycontroller-build-tools>1-SNAPSHOT</version.org.mycontroller.mycontroller-build-tools>
+    <!-- mycontroller-build-tools are used by both maven-checkstyle-plugin and lisense-plugin -->
+    <version.org.mycontroller.mycontroller-build-tools>1</version.org.mycontroller.mycontroller-build-tools>
 
     <!-- Maven plugin versions Naming convention: version.${artifactId} whenever
       unique enough; otherwise version.${groupId}.${artifactId} Ordering: alphabetic -->
@@ -169,10 +171,7 @@
     <version.maven-shade-plugin>2.4.3</version.maven-shade-plugin>
     <version.maven-source-plugin>3.0.0</version.maven-source-plugin>
     <version.maven-surefire-plugin>2.19.1</version.maven-surefire-plugin>
-    <version.maven-war-plugin>2.6</version.maven-war-plugin>
-    <version.nexus-staging-maven-plugin>1.6.6</version.nexus-staging-maven-plugin>
     <version.org.codehaus.buildnumber-maven-plugin>1.4</version.org.codehaus.buildnumber-maven-plugin>
-    <version.org.codehaus.gmavenplus.gmavenplus-plugin>1.5</version.org.codehaus.gmavenplus.gmavenplus-plugin>
     <version.org.codehaus.mojo.build-helper-maven-plugin>1.10</version.org.codehaus.mojo.build-helper-maven-plugin>
     <version.org.codehaus.mojo.xml-maven-plugin>1.0.1</version.org.codehaus.mojo.xml-maven-plugin>
     <version.srcdeps-maven-plugin>0.0.11</version.srcdeps-maven-plugin>
@@ -406,7 +405,6 @@
   <build>
     <pluginManagement>
       <plugins>
-        <!-- Ordering: alphabetic by the version property -->
 
         <plugin>
           <groupId>com.mycila</groupId>
@@ -555,12 +553,6 @@
         </plugin>
 
         <plugin>
-          <groupId>org.codehaus.gmavenplus</groupId>
-          <artifactId>gmavenplus-plugin</artifactId>
-          <version>${version.org.codehaus.gmavenplus.gmavenplus-plugin}</version>
-        </plugin>
-
-        <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
           <version>${version.org.codehaus.mojo.build-helper-maven-plugin}</version>
@@ -589,130 +581,6 @@
                   <buildArg>-Dcheckstyle.skip=true</buildArg>
                   <buildArg>-Dlicense.skip=true</buildArg>
                   <buildArg>-Drevapi.skip=true</buildArg>
-                </buildArgs>
-              </repository>
-              <repository>
-                <id>accounts</id>
-                <selectors>
-                  <selector>org.mycontroller.accounts</selector>
-                </selectors>
-                <url>${accounts.scm.url}</url>
-                <buildArgs>
-                  <buildArg>-Dcheckstyle.skip=true</buildArg>
-                  <buildArg>-Dlicense.skip=true</buildArg>
-                  <buildArg>-Drevapi.skip=true</buildArg>
-                </buildArgs>
-              </repository>
-              <repository>
-                <id>agent</id>
-                <selectors>
-                  <selector>org.mycontroller.agent</selector>
-                </selectors>
-                <url>${agent.scm.url}</url>
-                <buildArgs>
-                  <buildArg>-Dcheckstyle.skip=true</buildArg>
-                  <buildArg>-Dlicense.skip=true</buildArg>
-                  <buildArg>-Drevapi.skip=true</buildArg>
-                </buildArgs>
-              </repository>
-              <repository>
-                <id>alerts</id>
-                <selectors>
-                  <selector>org.mycontroller.alerts</selector>
-                </selectors>
-                <url>${alerts.scm.url}</url>
-                <buildArgs>
-                  <buildArg>-Dcheckstyle.skip=true</buildArg>
-                  <buildArg>-Dlicense.skip=true</buildArg>
-                  <buildArg>-Drevapi.skip=true</buildArg>
-                </buildArgs>
-              </repository>
-              <repository>
-                <id>btm</id>
-                <selectors>
-                  <selector>org.mycontroller.btm</selector>
-                </selectors>
-                <url>${btm.scm.url}</url>
-                <buildArgs>
-                  <buildArg>-Dcheckstyle.skip=true</buildArg>
-                  <buildArg>-Dlicense.skip=true</buildArg>
-                  <buildArg>-Drevapi.skip=true</buildArg>
-                </buildArgs>
-              </repository>
-              <repository>
-                <id>commons</id>
-                <selectors>
-                  <selector>org.mycontroller.commons</selector>
-                </selectors>
-                <url>${commons.scm.url}</url>
-                <buildArgs>
-                  <buildArg>-Dcheckstyle.skip=true</buildArg>
-                  <buildArg>-Dlicense.skip=true</buildArg>
-                  <buildArg>-Drevapi.skip=true</buildArg>
-                </buildArgs>
-              </repository>
-              <repository>
-                <id>cmdgw</id>
-                <selectors>
-                  <selector>org.mycontroller.cmdgw</selector>
-                </selectors>
-                <url>${cmdgw.scm.url}</url>
-                <buildArgs>
-                  <buildArg>-Dcheckstyle.skip=true</buildArg>
-                  <buildArg>-Dlicense.skip=true</buildArg>
-                  <buildArg>-Drevapi.skip=true</buildArg>
-                </buildArgs>
-              </repository>
-              <repository>
-                <id>datamining</id>
-                <selectors>
-                  <selector>org.mycontroller.datamining</selector>
-                </selectors>
-                <url>${datamining.scm.url}</url>
-                <buildArgs>
-                  <buildArg>-Dcheckstyle.skip=true</buildArg>
-                  <buildArg>-Dlicense.skip=true</buildArg>
-                  <buildArg>-Drevapi.skip=true</buildArg>
-                </buildArgs>
-              </repository>
-              <repository>
-                <id>inventory</id>
-                <selectors>
-                  <selector>org.mycontroller.inventory</selector>
-                </selectors>
-                <url>${inventory.scm.url}</url>
-                <buildArgs>
-                  <buildArg>-Dcheckstyle.skip=true</buildArg>
-                  <buildArg>-Dlicense.skip=true</buildArg>
-                  <buildArg>-Drevapi.skip=true</buildArg>
-                </buildArgs>
-              </repository>
-              <repository>
-                <id>metrics</id>
-                <selectors>
-                  <selector>org.mycontroller.metrics</selector>
-                </selectors>
-                <url>${metrics.scm.url}</url>
-                <buildArgs>
-                  <buildArg>-Dcheckstyle.skip=true</buildArg>
-                  <buildArg>-Dlicense.skip=true</buildArg>
-                  <buildArg>-Drevapi.skip=true</buildArg>
-                </buildArgs>
-              </repository>
-              <repository>
-                <id>keycloak</id>
-                <selectors>
-                  <selector>org.keycloak</selector>
-                </selectors>
-                <url>${keycloak.scm.url}</url>
-                <buildArgs>
-                  <buildArg>-Pdistribution</buildArg>
-                  <buildArg>-Dwildfly.version=${version.org.wildfly}</buildArg>
-                  <buildArg>-Dwildfly.core.version=${version.org.wildfly.core}</buildArg>
-                  <buildArg>-Dwildfly.build-tools.version=${version.org.wildfly.build}</buildArg>
-                  <buildArg>--projects</buildArg>
-                  <buildArg>distribution/feature-packs/adapter-feature-pack,distribution/feature-packs/server-feature-pack</buildArg>
-                  <buildArg>--also-make</buildArg>
                 </buildArgs>
               </repository>
             </repositories>
@@ -746,6 +614,7 @@
             <exclude>**/*.woff</exclude>
             <exclude>**/*.html</exclude>
             <exclude>**/*.htm</exclude>
+            <exclude>**/www/libs/*.*</exclude>
           </excludes>
           <mapping>
             <conf>SCRIPT_STYLE</conf>
@@ -797,14 +666,14 @@
           <failsOnError>${checkstyle.failOnError}</failsOnError>
           <!-- Make includes relative to ${basedir} -->
           <sourceDirectory>${basedir}</sourceDirectory>
-          <!-- in <includes>, it is necessary to avoid using an item-initial
-            **/ wildcard which pulls in also files from all submodules and target folders.
-            We do not want that. We rather have to name specific root folder patterns
-            like *.extension or directory/**/*.extension -->
+          <!-- in <includes>, it is necessary to avoid using an item-initial **/ wildcard
+               which pulls in also files from all submodules and target folders. We do not want
+               that. We rather have to name specific root folder patterns like *.extension
+               or directory/**/*.extension -->
           <includes>${mycontroller.checkstyle.includes}</includes>
           <excludes>${mycontroller.checkstyle.excludes}</excludes>
-          <!-- to override in a submodule, just redefine the checkstyle.suppressions.file
-            property in the given submodule's pom -->
+          <!-- to override in a submodule, just redefine the checkstyle.suppressions.file property
+               in the given submodule's pom -->
           <suppressionsLocation>${checkstyle.suppressions.file}</suppressionsLocation>
           <useFile />
         </configuration>
@@ -888,6 +757,7 @@
             <requireNoRepositories />
             <requirePluginVersions />
             <requireProperty>
+              <!-- stronger version of https://developer.jboss.org/wiki/JBossProjectVersioning -->
               <property>project.version</property>
               <message>Project version must be specified.</message>
               <regex>${enforcer.project.version.pattern}</regex>
@@ -898,15 +768,17 @@
       </plugin>
 
       <plugin>
-        <groupId>org.codehaus.gmavenplus</groupId>
-        <artifactId>gmavenplus-plugin</artifactId>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <configuration>
+          <locale>en_US</locale>
+          <timestampFormat>{0,date,yyyy-MM-dd'T'HH:mm:ssX}</timestampFormat>
+        </configuration>
         <executions>
           <execution>
+            <phase>validate</phase>
             <goals>
-              <goal>addSources</goal>
-              <goal>addTestSources</goal>
-              <goal>compile</goal>
-              <goal>testCompile</goal>
+              <goal>create</goal>
             </goals>
           </execution>
         </executions>
@@ -936,5 +808,123 @@
     </plugins>
   </build>
 
+  <profiles>
+    <!--
+      Ordering: alphabetic by id
+    -->
 
+    <profile>
+      <id>community.repositories</id>
+      <activation>
+        <property>
+          <name>!disable.community.repositories</name>
+        </property>
+      </activation>
+
+      <repositories>
+        <repository>
+          <id>oss-snapshots-repo</id>
+          <name>Sonatype OSS Maven Repository</name>
+          <url>https://oss.sonatype.org/content/groups/public/</url>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+          </snapshots>
+        </repository>
+        <repository>
+          <id>Eclipse Paho Repo</id>
+          <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
+        </repository>
+        <repository>
+          <id>moquette-bintray</id>
+          <url>http://dl.bintray.com/andsel/maven/</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+
+    </profile>
+
+    <profile>
+      <id>release</id>
+      <properties>
+        <!-- This makes the buildnumber-maven-plugin fail in case of uncommitted local changes -->
+        <maven.buildNumber.doCheck>true</maven.buildNumber.doCheck>
+
+        <!-- maven-enforcer-plugin -->
+        <enforcer.project.version.pattern>^(\d{1,4})(\.\d{1,3})?(\.\d{1,3})?(\.Alpha\d{1,2}|\.Beta\d{1,2}|\.CR\d{1,2}|\.Final)?$</enforcer.project.version.pattern>
+        <enforcer.project.version.message>Project version must be in the form of one of the following (x,y,z stands for any numbers): "x", "x.y", "x.y.z". There may be also a qualifier at the end. Qualifier can be one of the following: ".AlphaX", ".BetaX", ".CRX", ".Final", where X denotes a number.</enforcer.project.version.message>
+
+      </properties>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+              <additionalparam>${javadoc.doclint}</additionalparam>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>snapshots</id>
+      <repositories>
+        <repository>
+          <id>snapshots.jboss.org</id>
+          <name>JBoss Snapshot Repository</name>
+          <url>http://snapshots.jboss.org/maven2</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+
+    <profile>
+      <id>test.debug</id>
+      <activation>
+        <property>
+          <name>test.debug</name>
+        </property>
+      </activation>
+
+      <properties>
+        <!-- See: http://maven.apache.org/plugins/maven-surefire-plugin/test-mojo.html#debugForkedProcess -->
+        <maven.surefire.debug>-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=8789,server=y,suspend=y</maven.surefire.debug>
+      </properties>
+    </profile>
+
+
+  </profiles>
 </project>
