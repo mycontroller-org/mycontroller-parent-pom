@@ -114,6 +114,7 @@
       **/vendor/*.js,
       **/www/libs/**,
       **/*.jks,
+      **/.tx/config,
     </mycontroller.checkstyle.excludes>
     <!-- the default value pointing at suppressions.xml in mycontroller-build-tools -->
     <checkstyle.suppressions.file>mycontroller-checkstyle/suppressions.xml</checkstyle.suppressions.file>
@@ -627,6 +628,7 @@
             <exclude>**/*.htm</exclude>
             <exclude>**/www/libs/**</exclude>
             <exclude>**/*.jks</exclude>
+            <exclude>**/.tx/config</exclude>
           </excludes>
           <mapping>
             <conf>SCRIPT_STYLE</conf>
