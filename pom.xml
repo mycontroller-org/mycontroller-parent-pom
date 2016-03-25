@@ -858,15 +858,6 @@
           </snapshots>
         </repository>
         <repository>
-          <id>oss-staging-repo</id>
-          <name>Sonatype OSS Maven Staging Repository</name>
-          <url>https://oss.sonatype.org/content/groups/staging/</url>
-          <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>always</updatePolicy>
-          </snapshots>
-        </repository>
-        <repository>
           <id>Eclipse Paho Repo</id>
           <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
         </repository>
