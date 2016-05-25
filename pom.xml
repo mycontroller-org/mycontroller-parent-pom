@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>5</version>
+  <version>6</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -203,6 +203,7 @@
     <version.moquette-broker>0.8</version.moquette-broker>
     <version.org.apache.commons>1.4</version.org.apache.commons>
     <version.org.camunda.template-engines>1.0.1</version.org.camunda.template-engines>
+    <version.org.codehaus.groovy>2.4.6</version.org.codehaus.groovy>
     <version.org.easyrules>2.2.0</version.org.easyrules>
     <version.org.eclipse.paho>1.0.2</version.org.eclipse.paho>
     <version.org.flywaydb>3.2.1</version.org.flywaydb>
@@ -452,6 +453,20 @@
           </exclusion>
         </exclusions>
         <version>${version.org.camunda.template-engines}</version>
+      </dependency>
+
+      <!-- Groovy core -->
+      <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy</artifactId>
+        <version>${version.org.codehaus.groovy}</version>
+      </dependency>
+
+      <!-- Groovy jsr233 scripting support -->
+      <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-jsr223</artifactId>
+        <version>${version.org.codehaus.groovy}</version>
       </dependency>
 
     </dependencies>
