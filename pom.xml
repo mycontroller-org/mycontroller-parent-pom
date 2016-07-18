@@ -228,7 +228,7 @@
       <dependency>
         <groupId>org.mycontroller</groupId>
         <artifactId>mycontroller-rest-clients</artifactId>
-        <version>0.0.3.Alpha2-SNAPSHOT</version>
+        <version>${version.mycontroller-rest-clients}</version>
       </dependency>
 
       <!-- serial gateway drivers -->
