@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>9</version>
+  <version>10</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -215,16 +215,26 @@
     <version.org.python>2.7.0</version.org.python>
     <version.org.scream3r>2.8.0</version.org.scream3r>
     <version.org.slf4j>1.7.12</version.org.slf4j>
+    <version.org.yaml.snakeyaml>1.17</version.org.yaml.snakeyaml>
 
     <!-- dependency versions -->
     <version.mycontroller-rest-clients>1.0.0</version.mycontroller-rest-clients>
+    <version.mycontroller-core>0.0.3.Final-SNAPSHOT</version.mycontroller-core>
 
   </properties>
 
   <dependencyManagement>
     <dependencies>
 
-      <!-- Internal dependency - Rest clients -->
+      <!-- Internal dependency -->
+      <!-- Standalone core -->
+      <dependency>
+        <groupId>org.mycontroller.standalone</groupId>
+        <artifactId>mycontroller-core</artifactId>
+        <version>${version.mycontroller-core}</version>
+      </dependency>
+
+      <!-- Rest clients -->
       <dependency>
         <groupId>org.mycontroller</groupId>
         <artifactId>mycontroller-rest-clients</artifactId>
@@ -476,6 +486,13 @@
         <artifactId>jython</artifactId>
         <version>${version.org.python}</version>
         <scope>provided</scope>
+      </dependency>
+
+      <!-- Java YAML - snakeyaml -->
+      <dependency>
+        <groupId>org.yaml</groupId>
+        <artifactId>snakeyaml</artifactId>
+        <version>${version.org.yaml.snakeyaml}</version>
       </dependency>
 
     </dependencies>
