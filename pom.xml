@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>13</version>
+  <version>14</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -218,7 +218,7 @@
     <version.org.yaml.snakeyaml>1.17</version.org.yaml.snakeyaml>
 
     <!-- dependency versions -->
-    <version.mycontroller-rest-clients>1.0.0</version.mycontroller-rest-clients>
+    <version.mycontroller-rest-clients>1.0.1</version.mycontroller-rest-clients>
     <version.mycontroller-core>0.0.3.Final-SNAPSHOT</version.mycontroller-core>
 
   </properties>
