@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>14</version>
+  <version>15</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -249,15 +249,28 @@
       </dependency>
 
       <dependency>
+        <groupId>com.fazecast</groupId>
+        <artifactId>jSerialComm</artifactId>
+        <version>${version.com.fazecast}</version>
+      </dependency>
+
+      <!-- PI4J serial driver and componenets -->
+      <dependency>
         <groupId>com.pi4j</groupId>
         <artifactId>pi4j-core</artifactId>
         <version>${version.com.pi4j}</version>
       </dependency>
 
       <dependency>
-        <groupId>com.fazecast</groupId>
-        <artifactId>jSerialComm</artifactId>
-        <version>${version.com.fazecast}</version>
+        <groupId>com.pi4j</groupId>
+        <artifactId>pi4j-device</artifactId>
+        <version>${version.com.pi4j}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.pi4j</groupId>
+        <artifactId>pi4j-gpio-extension</artifactId>
+        <version>${version.com.pi4j}</version>
       </dependency>
 
       <!-- Logger -->
