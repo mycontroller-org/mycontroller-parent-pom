@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>15</version>
+  <version>16</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -200,7 +200,9 @@
     <version.commons-io>2.4</version.commons-io>
     <version.commons-lang>2.2</version.commons-lang>
     <version.javax.servlet>2.5</version.javax.servlet>
+    <version.org.mariadb.jdbc>1.5.3</version.org.mariadb.jdbc>
     <version.moquette-broker>0.8.1</version.moquette-broker>
+    <version.mysql>5.1.6</version.mysql>
     <version.org.apache.commons>1.4</version.org.apache.commons>
     <version.org.camunda.template-engines>1.0.1</version.org.camunda.template-engines>
     <version.org.codehaus.groovy>2.4.6</version.org.codehaus.groovy>
@@ -211,6 +213,7 @@
     <version.org.javolution>5.3.1</version.org.javolution>
     <version.org.jboss.resteasy>3.0.14.Final</version.org.jboss.resteasy>
     <version.org.knowm>2.1.1</version.org.knowm>
+    <version.org.postgresql>9.4.1211</version.org.postgresql>
     <version.org.projectlombok>1.16.10</version.org.projectlombok>
     <version.org.python>2.7.0</version.org.python>
     <version.org.scream3r>2.8.0</version.org.scream3r>
@@ -345,7 +348,7 @@
         <version>${version.javax.servlet}</version>
       </dependency>
 
-      <!-- Database driver -->
+      <!-- Database dao driver -->
       <dependency>
         <groupId>com.j256.ormlite</groupId>
         <artifactId>ormlite-jdbc</artifactId>
@@ -358,11 +361,33 @@
         <version>${version.com.j256.ormlite}</version>
       </dependency>
 
-      <!-- Database -->
+      <!-- Database embedded and drivers -->
+      <!-- H2DB database driver-->
       <dependency>
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>${version.com.h2database}</version>
+      </dependency>
+
+      <!-- Postgres database driver-->
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${version.org.postgresql}</version>
+      </dependency>
+
+      <!-- MariaDB database driver-->
+      <dependency>
+        <groupId>org.mariadb.jdbc</groupId>
+        <artifactId>mariadb-java-client</artifactId>
+        <version>${version.org.mariadb.jdbc}</version>
+      </dependency>
+
+      <!-- MySQL database driver-->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${version.mysql}</version>
       </dependency>
 
       <!-- Quartz scheduler -->
