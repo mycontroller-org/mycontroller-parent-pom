@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>16</version>
+  <version>17</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -210,6 +210,7 @@
     <version.org.eclipse.paho>1.1.0</version.org.eclipse.paho>
     <version.org.flywaydb>4.0.3</version.org.flywaydb>
     <version.org.freemarker>2.3.25-incubating</version.org.freemarker>
+    <version.com.google.guava>20.0</version.com.google.guava>
     <version.org.javolution>5.3.1</version.org.javolution>
     <version.org.jboss.resteasy>3.0.14.Final</version.org.jboss.resteasy>
     <version.org.knowm>2.1.1</version.org.knowm>
@@ -362,28 +363,28 @@
       </dependency>
 
       <!-- Database embedded and drivers -->
-      <!-- H2DB database driver-->
+      <!-- H2DB database driver -->
       <dependency>
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>${version.com.h2database}</version>
       </dependency>
 
-      <!-- Postgres database driver-->
+      <!-- Postgres database driver -->
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
         <version>${version.org.postgresql}</version>
       </dependency>
 
-      <!-- MariaDB database driver-->
+      <!-- MariaDB database driver -->
       <dependency>
         <groupId>org.mariadb.jdbc</groupId>
         <artifactId>mariadb-java-client</artifactId>
         <version>${version.org.mariadb.jdbc}</version>
       </dependency>
 
-      <!-- MySQL database driver-->
+      <!-- MySQL database driver -->
       <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
@@ -487,7 +488,7 @@
         <version>${version.org.freemarker}</version>
       </dependency>
 
-      <!-- freemarker - template engine jsr 223 support-->
+      <!-- freemarker - template engine jsr 223 support -->
       <dependency>
         <groupId>org.camunda.template-engines</groupId>
         <artifactId>camunda-template-engines-freemarker</artifactId>
@@ -531,6 +532,13 @@
         <groupId>org.yaml</groupId>
         <artifactId>snakeyaml</artifactId>
         <version>${version.org.yaml.snakeyaml}</version>
+      </dependency>
+
+      <!-- Google Core Libraries for Java -->
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${version.com.google.guava}</version>
       </dependency>
 
     </dependencies>
@@ -802,8 +810,7 @@
           <failsOnError>${checkstyle.failOnError}</failsOnError>
           <!-- Make includes relative to ${basedir} -->
           <sourceDirectory>${basedir}</sourceDirectory>
-          <!-- in <includes>, it is necessary to avoid using an item-initial **/ wildcard which pulls in also files from all submodules and target folders.
-            We do not want that. We rather have to name specific root folder patterns like *.extension or directory/**/*.extension -->
+          <!-- in <includes>, it is necessary to avoid using an item-initial **/ wildcard which pulls in also files from all submodules and target folders. We do not want that. We rather have to name specific root folder patterns like *.extension or directory/**/*.extension -->
           <includes>${mycontroller.checkstyle.includes}</includes>
           <excludes>${mycontroller.checkstyle.excludes}</excludes>
           <!-- to override in a submodule, just redefine the checkstyle.suppressions.file property in the given submodule's pom -->
