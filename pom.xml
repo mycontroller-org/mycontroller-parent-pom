@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright 2015-2016 Jeeva Kandasamy (jkandasa@gmail.com)
+    Copyright 2015-2017 Jeeva Kandasamy (jkandasa@gmail.com)
     and other contributors as indicated by the @author tags.
 
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>17</version>
+  <version>18</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -213,6 +213,7 @@
     <version.com.google.guava>20.0</version.com.google.guava>
     <version.org.javolution>5.3.1</version.org.javolution>
     <version.org.jboss.resteasy>3.0.14.Final</version.org.jboss.resteasy>
+    <version.org.jmdns>3.5.1</version.org.jmdns>
     <version.org.knowm>2.1.1</version.org.knowm>
     <version.org.postgresql>9.4.1211</version.org.postgresql>
     <version.org.projectlombok>1.16.10</version.org.projectlombok>
@@ -539,6 +540,13 @@
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
         <version>${version.com.google.guava}</version>
+      </dependency>
+
+      <!-- JmDNS registration and discovery-->
+      <dependency>
+        <groupId>org.jmdns</groupId>
+        <artifactId>jmdns</artifactId>
+        <version>${version.org.jmdns}</version>
       </dependency>
 
     </dependencies>
