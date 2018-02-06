@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>26</version>
+  <version>28</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -220,6 +220,7 @@
     <version.org.python>2.7.0</version.org.python>
     <version.org.scream3r>2.8.0</version.org.scream3r>
     <version.org.slf4j>1.7.25</version.org.slf4j>
+    <version.io.vertx>3.5.0</version.io.vertx>
     <version.org.yaml.snakeyaml>1.18</version.org.yaml.snakeyaml>
 
     <!-- dependency versions -->
@@ -553,6 +554,13 @@
         <groupId>org.jmdns</groupId>
         <artifactId>jmdns</artifactId>
         <version>${version.org.jmdns}</version>
+      </dependency>
+
+      <!-- Vertx.io event bus -->
+      <dependency>
+        <groupId>io.vertx</groupId>
+        <artifactId>vertx-core</artifactId>
+        <version>${version.io.vertx}</version>
       </dependency>
 
     </dependencies>
