@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>30</version>
+  <version>31</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
