@@ -225,8 +225,8 @@
     <version.org.yaml.snakeyaml>1.18</version.org.yaml.snakeyaml>
 
     <!-- dependency versions -->
-    <version.mycontroller-rest-clients>2.0.0.Final-SNAPSHOT</version.mycontroller-rest-clients>
-    <version.mycontroller-core>0.0.3.Final-SNAPSHOT</version.mycontroller-core>
+    <version.mycontroller-rest-clients>3.0.0-SNAPSHOT</version.mycontroller-rest-clients>
+    <version.mycontroller-core>1.2.0.Final</version.mycontroller-core>
 
   </properties>
 
