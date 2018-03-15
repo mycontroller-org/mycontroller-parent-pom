@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>31</version>
+  <version>32</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -200,7 +200,6 @@
     <version.commons-codec>1.10</version.commons-codec>
     <version.commons-io>2.4</version.commons-io>
     <version.commons-lang>2.2</version.commons-lang>
-    <version.gson>2.8.2</version.gson>
     <version.io.vertx>3.5.0</version.io.vertx>
     <version.javax.servlet>2.5</version.javax.servlet>
     <version.moquette-broker>0.10</version.moquette-broker>
@@ -562,13 +561,6 @@
         <groupId>io.vertx</groupId>
         <artifactId>vertx-core</artifactId>
         <version>${version.io.vertx}</version>
-      </dependency>
-
-      <!-- GSON https://github.com/google/gson -->
-      <dependency>
-        <groupId>com.google.code.gson</groupId>
-        <artifactId>gson</artifactId>
-        <version>${version.gson}</version>
       </dependency>
 
     </dependencies>
