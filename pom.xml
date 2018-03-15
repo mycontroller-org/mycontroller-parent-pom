@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>32</version>
+  <version>33</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -982,8 +982,9 @@
       </activation>
 
       <repositories>
+
         <repository>
-          <id>oss-snapshots-repo</id>
+          <id>oss-repo</id>
           <name>Sonatype OSS Maven Repository</name>
           <url>https://oss.sonatype.org/content/groups/public/</url>
           <snapshots>
@@ -991,10 +992,12 @@
             <updatePolicy>always</updatePolicy>
           </snapshots>
         </repository>
+
         <repository>
           <id>Eclipse Paho Repo</id>
           <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
         </repository>
+
         <repository>
           <id>moquette-bintray</id>
           <url>http://dl.bintray.com/andsel/maven/</url>
@@ -1005,6 +1008,7 @@
             <enabled>true</enabled>
           </snapshots>
         </repository>
+
       </repositories>
 
     </profile>
