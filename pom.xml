@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>33</version>
+  <version>34</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -991,6 +991,9 @@
             <enabled>true</enabled>
             <updatePolicy>always</updatePolicy>
           </snapshots>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
         </repository>
 
         <repository>
