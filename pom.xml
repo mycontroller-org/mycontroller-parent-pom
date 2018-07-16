@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>37</version>
+  <version>38</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -211,6 +211,7 @@
     <version.org.eclipse.paho>1.2.0</version.org.eclipse.paho>
     <version.org.flywaydb>5.0.5</version.org.flywaydb>
     <version.org.freemarker>2.3.27-incubating</version.org.freemarker>
+    <version.org.influxdb>2.11</version.org.influxdb>
     <version.org.javolution>5.3.1</version.org.javolution>
     <version.org.jboss.resteasy>3.0.14.Final</version.org.jboss.resteasy>
     <version.org.jmdns>3.5.1</version.org.jmdns>
@@ -561,6 +562,13 @@
         <groupId>io.vertx</groupId>
         <artifactId>vertx-core</artifactId>
         <version>${version.io.vertx}</version>
+      </dependency>
+
+      <!-- InfluxDb client -->
+      <dependency>
+        <groupId>org.influxdb</groupId>
+        <artifactId>influxdb-java</artifactId>
+        <version>2.10</version>
       </dependency>
 
     </dependencies>
