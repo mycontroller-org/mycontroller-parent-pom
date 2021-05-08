@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>41</version>
+  <version>42</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -1007,17 +1007,6 @@
         <repository>
           <id>Eclipse Paho Repo</id>
           <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
-        </repository>
-
-        <repository>
-          <id>moquette-bintray</id>
-          <url>http://dl.bintray.com/andsel/maven/</url>
-          <releases>
-            <enabled>false</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
         </repository>
 
       </repositories>
