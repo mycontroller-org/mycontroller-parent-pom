@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright 2015-2018 Jeeva Kandasamy (jkandasa@gmail.com)
+    Copyright 2015-2021 Jeeva Kandasamy (jkandasa@gmail.com)
     and other contributors as indicated by the @author tags.
 
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>38</version>
+  <version>39</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -196,7 +196,7 @@
     <version.com.h2database>1.4.194</version.com.h2database>
     <version.com.j256.ormlite>5.0</version.com.j256.ormlite>
     <version.com.luckycatlabs>1.2</version.com.luckycatlabs>
-    <version.com.pi4j>1.2-SNAPSHOT</version.com.pi4j>
+    <version.com.pi4j>1.2</version.com.pi4j>
     <version.commons-codec>1.10</version.commons-codec>
     <version.commons-io>2.4</version.commons-io>
     <version.commons-lang>2.2</version.commons-lang>
