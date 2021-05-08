@@ -198,7 +198,7 @@
     <version.com.luckycatlabs>1.2</version.com.luckycatlabs>
     <version.com.pi4j>1.2</version.com.pi4j>
     <version.commons-codec>1.10</version.commons-codec>
-    <version.commons-io>2.4</version.commons-io>
+    <version.commons-io>2.7</version.commons-io>
     <version.commons-lang>2.2</version.commons-lang>
     <version.io.vertx>3.5.0</version.io.vertx>
     <version.javax.servlet>2.5</version.javax.servlet>
