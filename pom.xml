@@ -200,7 +200,7 @@
     <version.commons-codec>1.10</version.commons-codec>
     <version.commons-io>2.4</version.commons-io>
     <version.commons-lang>2.2</version.commons-lang>
-    <version.io.vertx>3.5.0</version.io.vertx>
+    <version.io.vertx>3.5.4</version.io.vertx>
     <version.javax.servlet>2.5</version.javax.servlet>
     <version.moquette-broker>0.10</version.moquette-broker>
     <version.mysql>5.1.6</version.mysql>
