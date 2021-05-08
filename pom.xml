@@ -1013,7 +1013,7 @@
           <id>moquette-bintray</id>
           <url>http://dl.bintray.com/andsel/maven/</url>
           <releases>
-            <enabled>true</enabled>
+            <enabled>false</enabled>
           </releases>
           <snapshots>
             <enabled>true</enabled>
