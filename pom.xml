@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>42</version>
+  <version>43</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -1007,6 +1007,17 @@
         <repository>
           <id>Eclipse Paho Repo</id>
           <url>https://repo.eclipse.org/content/repositories/paho-releases/</url>
+        </repository>
+
+        <repository>
+          <id>moquette-bintray</id>
+          <url>https://jcenter.bintray.com</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
         </repository>
 
       </repositories>
