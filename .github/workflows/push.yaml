@@ -15,6 +15,9 @@
 # limitations under the License.
 #
 
+
+# reference: https://dzone.com/articles/how-to-publish-artifacts-to-maven-central
+
 name: Publish package to sonatype Repository
 on:
   push:
