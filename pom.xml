@@ -208,7 +208,7 @@
     <version.org.camunda.template-engines>1.0.1</version.org.camunda.template-engines>
     <version.org.codehaus.groovy>2.4.13</version.org.codehaus.groovy>
     <version.org.easyrules>2.5.0</version.org.easyrules>
-    <version.org.eclipse.paho>1.2.0</version.org.eclipse.paho>
+    <version.org.eclipse.paho>1.2.1</version.org.eclipse.paho>
     <version.org.flywaydb>5.0.5</version.org.flywaydb>
     <version.org.freemarker>2.3.27-incubating</version.org.freemarker>
     <version.org.influxdb>2.11</version.org.influxdb>
