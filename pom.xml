@@ -203,7 +203,7 @@
     <version.io.vertx>3.5.0</version.io.vertx>
     <version.javax.servlet>2.5</version.javax.servlet>
     <version.moquette-broker>0.10</version.moquette-broker>
-    <version.mysql>5.1.6</version.mysql>
+    <version.mysql>8.0.28</version.mysql>
     <version.org.apache.commons>1.4</version.org.apache.commons>
     <version.org.camunda.template-engines>1.0.1</version.org.camunda.template-engines>
     <version.org.codehaus.groovy>2.4.13</version.org.codehaus.groovy>
