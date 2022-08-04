@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright 2015-2021 Jeeva Kandasamy (jkandasa@gmail.com)
+    Copyright 2015-2022 Jeeva Kandasamy (jkandasa@gmail.com)
     and other contributors as indicated by the @author tags.
 
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@
 
   <groupId>org.mycontroller</groupId>
   <artifactId>mycontroller-parent</artifactId>
-  <version>43</version>
+  <version>44</version>
   <packaging>pom</packaging>
 
   <name>MyController parent pom</name>
@@ -225,7 +225,7 @@
     <version.org.yaml.snakeyaml>1.18</version.org.yaml.snakeyaml>
 
     <!-- dependency versions -->
-    <version.mycontroller-rest-clients>3.1.2</version.mycontroller-rest-clients>
+    <version.mycontroller-rest-clients>3.1.3</version.mycontroller-rest-clients>
     <version.mycontroller-core>1.2.0.Final</version.mycontroller-core>
 
   </properties>
